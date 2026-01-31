@@ -12,9 +12,14 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@michaelhart/meshcore-decoder": "^0.2.7",
+    "mqtt": "^5.14.1",
+    "node-fetch": "^3.3.2"
   }
 }
