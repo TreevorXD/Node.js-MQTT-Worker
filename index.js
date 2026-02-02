@@ -9,14 +9,14 @@ const SIZE = 100;
 
 // ===== ENV =====
 // Original MeshCore MQTT
-const MQTT_URL = "wss://meshcoremqtt.cloud.shiftr.io:443";
+const MQTT_URL = "wss://z7071e7e.ala.us-east-1.emqxsl.com:8084/mqtt";
 const MQTT_USER = "meshcoremqtt";
-const MQTT_PASS = "public";
+const MQTT_PASS = process.env.AUTH;
 
 // Second MQTT for broadcasting updates
-const BROADCAST_MQTT_URL = "wss://meshplacegrid.cloud.shiftr.io:443";
-const BROADCAST_USER = "meshplacegrid";
-const BROADCAST_PASS = process.env.BROADCAST_KEY;
+const BROADCAST_MQTT_URL = "wss://z7071e7e.ala.us-east-1.emqxsl.com:8084/mqtt";
+const BROADCAST_USER = "meshcoremqtt";
+const BROADCAST_PASS = process.env.AUTH;
 const BROADCAST_TOPIC = "pixels";
 
 // API server
@@ -36,7 +36,7 @@ const seenRaw = new Set();
 // ===== MQTT Clients =====
 // Original listener
 const client = mqtt.connect(MQTT_URL, {
-  clientId: `worker_${Math.random().toString(16).slice(2)}`,
+  clientId: `worker_1`,
   username: MQTT_USER,
   password: MQTT_PASS,
   reconnectPeriod: 1000,
@@ -44,7 +44,7 @@ const client = mqtt.connect(MQTT_URL, {
 
 // Broadcast MQTT
 const broadcastClient = mqtt.connect(BROADCAST_MQTT_URL, {
-  clientId: `broadcast_${Math.random().toString(16).slice(2)}`,
+  clientId: `broadcast_1`,
   username: BROADCAST_USER,
   password: BROADCAST_PASS,
   reconnectPeriod: 1000,
