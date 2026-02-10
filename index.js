@@ -43,7 +43,7 @@ const client = mqtt.connect(MQTT_URL, {
 });
 
 // Broadcast MQTT
-const broadcastClient = mqtt.connect(BROADCAST_MQTT_URL, {
+const broadcastClient = mqtt.connect(gBROADCAST_MQTT_URL, {
   clientId: `broadcast_1`,
   username: BROADCAST_USER,
   password: BROADCAST_PASS,
